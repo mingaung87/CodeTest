@@ -1,0 +1,56 @@
+﻿@model PagedList.IPagedList<CodeTest.Models.AmotizeListModel>  
+  
+@using PagedList.Mvc;  
+@{  
+    ViewBag.Title = "Amotization List";  
+    Layout = "~/Views/Shared/_Layout.cshtml";  
+} 
+
+<h2>@ViewBag.Title</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Month</th>
+        <th>Payment</th>
+        <th>Balance</th>
+        <th>Monthly Interest</th>
+        <th>Cummulative Interest</th>
+        <th>Monthly Pricipal</th>
+        <th>Cummulative Pricipal</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Month)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Balance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonthlyInterest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CummulativeInterest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonthlyPrincipal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CummulativePrincipal)
+        </td>
+    </tr>
+}
+</table>
+<div>
+    @Html.ActionLink("Back to Schedule", "AmortizationSchedule","Amotize")
+</div>
+<br />  
+    <div id='Paging' style="text-align: center">  
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)  
+        of @Model.PageCount  
+  
+        @Html.PagedListPager(Model, page => Url.Action("AmotizationList", new { page }))  
+    </div>  

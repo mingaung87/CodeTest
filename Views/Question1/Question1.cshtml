@@ -1,0 +1,50 @@
+﻿@model CodeTest.Models.Question1Model
+
+@{
+    ViewBag.Title = "Question 1";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Question1Model</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.input)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.input)
+            @Html.ValidationMessageFor(model => model.input)
+        </div>
+
+        <table>
+            <tr>
+                <td>
+                    <button type="submit" id="btnReverseWord" name="Command" value="ReverseWord">Reverse Word Order</button></td>
+                <td>
+                    <button type="submit" id="btnReverseCharacters" name="Command" value="ReverseCharacters">Reverse Characters</button></td>
+                <td>
+                    <button type="submit" id="btnAlphabeticallySortWords" name="Command" value="AlphabeticallySortWords">Alphabetically Sort Words</button></td>
+                <td>
+                    <button type="submit" id="btnEncrypt" name="Command" value="Encrypt">Encrypt</button>
+                </td>
+            </tr>
+        </table>
+        <br />
+        
+        <h3>@Html.DisplayFor(model => model.output)</h3>
+        <br />
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to Home", "Index","Home")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

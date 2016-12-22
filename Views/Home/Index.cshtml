@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title</h1>
+            </hgroup>
+            <p>
+            </p>
+        </div>
+    </section>
+}
+<h3>Interview Question</h3>
+<br />
+<ol class="round">
+    <li class="one">
+         <h5>Question 1</h5>
+         Takes in a paragraph of indeterminate length and performs the following functions:
+        <br />
+         1. Reverse word order: e.g. ‘the brown fox’ becomes ‘fox brown the’
+        <br />
+         2. Reverse characters while maintaining word order: e.g. ‘the brown fox’ becomes ‘eht nworb xof’
+        <br />
+         3. Alphabetically sort words: e.g. ‘the brown fox’ becomes ‘brown fox the’
+        <br />
+         4. Encrypt the paragraph using a salted SHA-384 algorithm.
+         <h3>@Html.ActionLink("Question 1", "Question1", "Question1")</h3>
+    </li>
+    <li class="two">
+        <h5>Question 2</h5>
+        Create an amortization table based on inputs for original loan amount, loan term (in months) 
+        and interest rate and return a fully amortized payment schedule showing payment amount, principal paid and balance remaining on a monthly basis.
+        <h3>@Html.ActionLink("Calculate Amotization Schedule", "AmortizationSchedule", "Amotize")</h3>
+        </li>
+</ol>
+
+
